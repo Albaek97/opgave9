@@ -1,2 +1,2 @@
 # opgave9
-Denne opgave kæauishsrgæoiERH
+This is a readme document ;)
