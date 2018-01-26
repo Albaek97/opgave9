@@ -1,4 +1,20 @@
 // Alt der gælder for mobil og højere
+@mixin wTitleM{
+  color: white;
+  text-align: center;
+}
+
+$wTextcolor: #7f8289;
+
+@mixin wText{
+  color: $wTextcolor;
+  font-weight: 300;
+  font-size: 16px;
+
+  line-height: 28px;
+}
+
+$wLinkColor: #de5e60;
 
 * { // Gælder alt på hele siden
   -webkit-box-sizing: border-box; // -webkit- browserunderstøttelse
@@ -7,6 +23,7 @@
 
 body {
   margin: 0; // Ingen kanter i siden af browser
+  font-family: 'Titillium Web', sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -36,80 +53,335 @@ img {
   height: auto; // Højden skal tilpasse sig
 }
 
-.container {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: auto;
-  justify-items: stretch;
+.wPage{
+  height: auto;
+
+  padding: 100px 20px;
+
+  background-color: #2F3238;
 }
 
-.header{
-  display: grid;
-  grid-column: 1 / span 12;
-  height: 60px;
-  background-color: black;
-
+.wContainer{
+  width: auto;
+  height: auto;
 }
 
-.dropdown{
-  position: absolute;
-  top: 17px;
-  right: 15px;
+.wTitleText{
+  @include wTitleM;
+  margin-bottom: 100px;
+
+  a{
+    text-decoration: none;
+    color: $wLinkColor;
+  }
+
+  h2{
+    font-size: 48px;
+    font-weight: 300;
+    line-height: 1.5em;
+    margin: 0 0 10px 0;
+  }
+
+  h3{
+    font-size: 24px;
+    font-weight: 200;
+    line-height: 1.5em;
+    margin: 0;
+  }
 }
 
-.dropbtn{
-background-color: black;
-  color: white;
+.tContainer{
+  width: auto;
+  height: 90vh;
 }
 
-//Selve indholdet i dropdown menuen.
-.dropdown-content{
+.wPage{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+.wGal{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+
+.wMenu{
+   @include wText;
+   width: 100%;
+ }
+
+.wMenuNav{
+  margin-bottom: 30px;
+
+  ul{
+    font-size: 16px;
+  }
+
+  li{
+    display: inline-block;
+    list-style-type: none;
+    line-height: 20px;
+    font-size: 13px;
+    padding: 0 10px 0 0;
+  }
+
+  a{
+    text-decoration: none;
+    color: $wTextcolor;
+  }
+}
+
+@mixin wMenuLogo{
+  background-color: white;
+  height: 2px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2px;
+}
+
+.wMenuLogo1{
+  @include wMenuLogo;
+  width: 16px;
+}
+
+.wMenuLogo2{
+  @include wMenuLogo;
+  width: 10px;
+}
+
+#wMenuNav2{
   display: none;
-  position: absolute;
-  background-color: #aaaaaa;
-  width: 100vw;
-  z-index: 5;
-  right: 0;
 }
 
-//De links der er i menuen
-.dropdown-content a{
-  color: #ffffff;
-  text-align: center;
-  padding: 15px;
-  text-decoration: none;
-  display: block;
-  font-family: 'raleway', sans-serif;
+.wGalPictures{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+
+  width: 100%;
 }
 
-//Farven på linket(kassen) når musen er hen over
-.dropdown-content a:hover{
-  background-color: #000000;
-}
-
-//Viser menuen når markøren er over menulogoet.
-.dropdown:hover .dropdown-content{
-  display: block;
-}
-
-.footer{
-  display: grid;
-  grid-column: 1 / span 12;
-  background-color: #111111;
+.wThumb{
   position: relative;
-  top: 400px;
-  height: 100px;
-  padding-top: 30px;
+  width: 100%;
 
+  margin-bottom: 30px;
 }
 
-.footertxt{
-  color: #ffffff;
+.wImage{
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.wOverlay{
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
   text-align: center;
+  vertical-align: middle;
+  background-color: red;
 }
 
-.menubar{
+.wThumb:hover .wOverlay{
+  opacity: 0.5;
+}
+
+.wOverlayText{
+  margin-top: 28%;
+
+  color: white;
+  font-size: 28px;
+  font-family: cursive;
+}
+
+$icon: darken(red, 30);
+
+@mixin type_grid {
+  display: grid;
+  width: 100%;
+  height: 100%;
+}
+
+@mixin per_type {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template-rows: 50% 10% 35% 5%;
+  grid-template-columns: 20px 1fr 20px;
+}
+
+@mixin img_opt {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.a_grid {
+  display: grid;
+  width: 100%;
+  height: 2000px;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
+}
+
+.a_menu {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.a_menugrid {
+  @include type_grid;
+  grid-template-rows: repeat(4, 1fr);
+}
+
+.a_title {
+  grid-row: 1;
+}
+
+.a_tit_grid {
+  @include type_grid;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: 20px 1fr 20px;
+}
+
+.a_per1_grid, .a_per2_grid, .a_per3_grid {
+  @include per_type;
+  grid-column: 2/5;
+}
+
+.a_per1 {
+  grid-row: 2;
+}
+
+.a_per2 {
+  grid-row: 3;
+}
+
+.a_per3 {
+  grid-row: 4;
+}
+
+.a_head_about {
+  grid-row: 1;
+  grid-column: 2 /3;
+
+  text-align: center;
+  bottom: 0;
+  padding: 0;
+  margin-top: 190px;
+
+}
+
+.a_head_bread {
+  grid-row: 2;
+  grid-column: 2 /3;
+  text-align: center;
+  font-size: 13px;
+}
+
+.pop_text1, .pop_text2, .pop_text3 {
+  grid-row: 1;
+  grid-column: 2 /3;
+  position: absolute;
+  margin-top: 70px;
+  text-align: center;
+  width: 100%;
+  font-size: 70px;
+  color: red;
+  font-family: cursive;
   display: none;
+  -webkit-text-stroke: 2px black;
+}
+
+.a_img1, .a_img2, .a_img3 {
+  grid-row: 1;
+  grid-column: 2 /3;
+  position: relative;
+}
+
+.a_small_head1, .a_small_head2, .a_small_head3 {
+  grid-row: 2;
+  grid-column: 2 /3;
+
+  margin-top: 10px;
+}
+
+.a_text1 {
+  grid-row: 3;
+  grid-column: 2 /3;
+
+  margin-left: 5px;
+  line-height: 20px;
+}
+
+.a_text2 {
+  @extend .a_text1;
+}
+
+.a_text3 {
+  @extend .a_text1;
+}
+
+.a_social1, .a_social2, .a_social3 {
+  grid-row: 4;
+  grid-column: 2 /3;
+
+  margin-left: 5px;
+
+  a{
+    color: $icon;
+  }
+}
+
+.a_img1:hover, .a_img2:hover, .a_img3:hover{
+  background-color: rgba(255, 0, 0, 0.2);
+}
+
+.a_img1:hover {
+  .pop_text1 {
+    display: block;
+  }
+}
+
+.a_img2:hover {
+  .pop_text2 {
+    display: block;
+  }
+}
+
+.a_img3:hover {
+  .pop_text3 {
+    display: block;
+  }
+}
+
+.a_img1 {
+  background: url("../images/thomas.png");
+  @include img_opt;
+}
+
+.a_img2 {
+  background: url("../images/henry.png");
+  @include img_opt;
+}
+
+.a_img3 {
+  background: url("../images/james.png");
+  @include img_opt;
 }
 
 @media screen and (min-width: 768px) {
@@ -118,45 +390,94 @@ background-color: black;
 
 @media screen and (min-width: 992px) {
   // Alt der ændres i tablet liggende fra mobil og tablet stående
+
+
 }
 
 @media screen and (min-width: 1200px) {
   // Alt der ændres i computer fra mobil, tablet stående og tablet liggende
 
-.dropdown{
-  display: none;
-}
+  .wGal{
+    width: 1200px;
+    flex-direction: row;
+    justify-content: space-between;
 
-.header{
-
-}
-
-.menubar{
-  display: block;
-  right: 1px;
-}
-
-a{
-  text-decoration: none;
-  color: #ffffff;
-}
-
-li{
-  list-style-type: none;
-
-}
-
-ul li{
-  display: inline-block;
-  padding: 18px 15px;
-  right: 0;
-}
-
-.menubar ul li{
-  display: inline-block;
-  justify-content: space-between;
+    margin-left: auto;
+    margin-right: auto;
   }
 
+  .wMenu{
+    width: 100%;
+  }
+
+  .wMenuNav{
+    margin-bottom: 30px;
+
+    ul{
+      font-size: 16px;
+    }
+
+    li{
+      display: block;
+      line-height: 20px;
+      font-size: 13px;
+      padding: 0 0 20px 0;
+    }
+  }
+
+  #wMenuNav1{
+    display: none;
+  }
+
+  #wMenuNav2{
+    display: block;
+    color: white;
+    font-size: 28px;
+  }
+
+  .wGalPictures{
+    width: 100%;
+    margin-left: 50px;
+
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .wThumb{
+    width: 30%;
+
+  }
+
+
+.a_menugrid {
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: 40px 1fr 1fr 1fr 40px;
+}
+
+.a_title {
+  grid-column: 2/5;
+}
+
+.a_per1, .a_per2, .a_per3 {
+  grid-row: 2;
+}
+
+.a_per1 {
+  grid-column: 2/3;
+}
+
+.a_per2 {
+  grid-column: 3/4;
+}
+
+.a_per3 {
+  grid-column: 4/5;
+}
+
+.a_grid {
+  height: auto;
+}
 }
 
 @media print {
