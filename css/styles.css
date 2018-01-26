@@ -29,6 +29,84 @@ img {
   max-width: 100%;
   height: auto; }
 
+.header {
+  background-color: #2F3238;
+  height: 70px;
+  width: 100vw; }
+
+.dropdown {
+  display: block; }
+
+.menubar {
+  display: none; }
+
+.dropbtn {
+  background-color: #2F3238;
+  color: #ffffff;
+  cursor: pointer;
+  border: none;
+  padding: 10px 10px;
+  font-size: 30px; }
+
+.dropdown {
+  position: absolute;
+  top: 3px;
+  right: 0; }
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #aaaaaa;
+  width: 100vw;
+  z-index: 5;
+  right: 0;
+  text-align: center; }
+
+.dropdown-content a {
+  color: #ffffff;
+  padding: 10px 10px;
+  text-decoration: none;
+  display: block;
+  font-family: 'raleway', sans-serif; }
+
+.dropdown-content a:hover {
+  background-color: #2F3238; }
+
+.dropdown:hover .dropdown-content {
+  display: block; }
+
+.brushed {
+  color: #ffffff;
+  font-size: 30px;
+  padding-top: 10px;
+  padding-left: 10px; }
+
+.footer1 {
+  background-color: #404349;
+  height: 150px;
+  margin-top: 130px;
+  position: relative; }
+
+.footer1 a {
+  font-size: 30px;
+  padding: 60px 20px;
+  text-align: left;
+  color: #ffffff; }
+
+.some {
+  margin-left: 0;
+  margin-right: 0;
+  padding-top: 20px; }
+
+.footer {
+  background-color: #2F3238;
+  height: 70px; }
+
+.footer p {
+  color: #ffffff;
+  text-align: center;
+  padding-top: 25px; }
+
 .wPage {
   height: auto;
   padding: 100px 20px; }
@@ -272,6 +350,46 @@ img {
   background-size: contain; }
 
 @media screen and (min-width: 1200px) {
+  .brushed {
+    float: left; }
+
+  .menubar {
+    display: block;
+    float: right;
+    padding-right: 10%; }
+
+  .menubar a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 20px; }
+
+  li {
+    list-style-type: none; }
+
+  ul li {
+    display: inline-block;
+    padding: 18px 15px; }
+
+  .menubar ul li {
+    display: inline-block;
+    justify-content: space-between; }
+
+  .dropdown {
+    display: none; }
+
+  a {
+    color: #ffffff;
+    text-decoration: none;
+    font-family: 'raleway', sans-serif; }
+
+  a:hover {
+    color: red; }
+
+  .footer1 a {
+    font-size: 80px;
+    text-align: center;
+    padding: 1px 70px; }
+
   .wGal {
     width: 1200px;
     flex-direction: row;
