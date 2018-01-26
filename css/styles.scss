@@ -1,4 +1,20 @@
 // Alt der gælder for mobil og højere
+@mixin wTitleM{
+  color: white;
+  text-align: center;
+}
+
+$wTextcolor: #7f8289;
+
+@mixin wText{
+  color: $wTextcolor;
+  font-weight: 300;
+  font-size: 16px;
+
+  line-height: 28px;
+}
+
+$wLinkColor: #de5e60;
 
 * { // Gælder alt på hele siden
   -webkit-box-sizing: border-box; // -webkit- browserunderstøttelse
@@ -7,6 +23,7 @@
 
 body {
   margin: 0; // Ingen kanter i siden af browser
+  font-family: 'Titillium Web', sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -36,6 +53,155 @@ img {
   height: auto; // Højden skal tilpasse sig
 }
 
+.wPage{
+  height: auto;
+
+  padding: 100px 20px;
+
+  background-color: #2F3238;
+}
+
+.wContainer{
+  width: auto;
+  height: auto;
+}
+
+.wTitleText{
+  @include wTitleM;
+  margin-bottom: 100px;
+
+  a{
+    text-decoration: none;
+    color: $wLinkColor;
+  }
+
+  h2{
+    font-size: 48px;
+    font-weight: 300;
+    line-height: 1.5em;
+    margin: 0 0 10px 0;
+  }
+
+  h3{
+    font-size: 24px;
+    font-weight: 200;
+    line-height: 1.5em;
+    margin: 0;
+  }
+}
+
+.wPage{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+.wGal{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+
+.wMenu{
+   @include wText;
+   width: 100%;
+ }
+
+.wMenuNav{
+  margin-bottom: 30px;
+
+  ul{
+    font-size: 16px;
+  }
+
+  li{
+    display: inline-block;
+    list-style-type: none;
+    line-height: 20px;
+    font-size: 13px;
+    padding: 0 10px 0 0;
+  }
+
+  a{
+    text-decoration: none;
+    color: $wTextcolor;
+  }
+}
+
+@mixin wMenuLogo{
+  background-color: white;
+  height: 2px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2px;
+}
+
+.wMenuLogo1{
+  @include wMenuLogo;
+  width: 16px;
+}
+
+.wMenuLogo2{
+  @include wMenuLogo;
+  width: 10px;
+}
+
+#wMenuNav2{
+  display: none;
+}
+
+.wGalPictures{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+
+  width: 100%;
+}
+
+.wThumb{
+  position: relative;
+  width: 100%;
+
+  margin-bottom: 30px;
+}
+
+.wImage{
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.wOverlay{
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+  vertical-align: middle;
+  background-color: red;
+}
+
+.wThumb:hover .wOverlay{
+  opacity: 0.5;
+}
+
+.wOverlayText{
+  margin-top: 28%;
+
+  color: white;
+  font-size: 28px;
+  font-family: cursive;
+}
 
 @media screen and (min-width: 768px) {
   // Alt der ændres i tablet stående fra mobil
@@ -43,10 +209,64 @@ img {
 
 @media screen and (min-width: 992px) {
   // Alt der ændres i tablet liggende fra mobil og tablet stående
+
+
 }
 
 @media screen and (min-width: 1200px) {
   // Alt der ændres i computer fra mobil, tablet stående og tablet liggende
+
+  .wGal{
+    width: 1200px;
+    flex-direction: row;
+    justify-content: space-between;
+
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .wMenu{
+    width: 100%;
+  }
+
+  .wMenuNav{
+    margin-bottom: 30px;
+
+    ul{
+      font-size: 16px;
+    }
+
+    li{
+      display: block;
+      line-height: 20px;
+      font-size: 13px;
+      padding: 0 0 20px 0;
+    }
+  }
+
+  #wMenuNav1{
+    display: none;
+  }
+
+  #wMenuNav2{
+    display: block;
+    color: white;
+    font-size: 28px;
+  }
+
+  .wGalPictures{
+    width: 100%;
+    margin-left: 50px;
+
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .wThumb{
+    width: 30%;
+
+  }
 }
 
 @media print {
