@@ -4,7 +4,9 @@
 
 body {
   margin: 0;
-  font-family: 'Titillium Web', sans-serif; }
+  font-family: 'Titillium Web', sans-serif;
+  background-color: #2F3238;
+  color: white; }
 
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
@@ -107,8 +109,7 @@ img {
 
 .wPage {
   height: auto;
-  padding: 100px 20px;
-  background-color: #2F3238; }
+  padding: 100px 20px; }
 
 .wContainer {
   width: auto;
@@ -131,10 +132,6 @@ img {
     font-weight: 200;
     line-height: 1.5em;
     margin: 0; }
-
-.tContainer {
-  width: auto;
-  height: 90vh; }
 
 .wPage {
   display: flex;
